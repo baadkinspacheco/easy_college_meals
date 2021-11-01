@@ -1,11 +1,26 @@
-# Cheap and easy meals for the average college student
+'''     Author: Brooke Adkins
+        Description: Cheap and easy meals for the average college student.
+        Also includes feature where tasks can be prioritzed during cooking time.
+'''
 
 def menu():
-    med_chicken = {'chicken', 'olives', 'butter', 'olive oil', 'white wine', 'capers', 'tomatos', 'salt', 'pepper', 'pan'}
-    pasta = {'pasta', 'tomato sauce', 'pot'}
-    chicken_tacos = {'tortilla', 'salsa', 'cilantro', 'lime', 'chicken', 'cheese', 'beans', 'avocado', 'pan'}
+    menu = {'chicken dinner': {'chicken', 'olives', 'butter', 'olive oil', 'white wine', 'capers', 'tomatos', 'salt', 'pepper'},
+    'pasta': {'pasta', 'tomato sauce', 'pot'}, 'chicken tacos': {'tortilla', 'salsa', 'cilantro', 'lime', 'chicken', 'cheese', 'beans', 'avocado'}}
+    return menu
     # Don't see anything you like??
     # Randomly generate a meal with lists of ingredients from menu items
+
+def cook_time():
+    cook_time =  {'chicken dinner': 30, 'pasta': 10, 'chicken tacos': 20}
+    return cook_time
+
+def add_menu_item(menu):
+    meal = input('What is the name of this meal?\n')
+    time = input('How long does it take to prepare and cook?\n')
+    print('What are the ingredients? Hit return after each item.')
+    ingredients = items()
+    menu[meal] = ingredients
+    time[meal] = time
 
 def items():
     """ Returns a set of items the user
@@ -47,9 +62,17 @@ def main():
 
     # What menu items would you liek to cook in the furture?
     # From list of menu items create a shopping list
+    menu = menu()
 
     # Create a new menu item
-
+    while True:
+        command = input('Would you like to add an item to the menu? Reply yes or no')
+        if command.lower() == 'yes':
+            add_menu_item(menu)
+        elif command.lower() == 'no':
+            break
+        else:
+            print('Please type in \'yes\' or \'no\'')
 
 
 main()
